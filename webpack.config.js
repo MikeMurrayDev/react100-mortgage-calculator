@@ -3,6 +3,8 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, '/src'),
 
+  devtool: 'source-map',
+
   entry: {
     javascript: './js/index'
   },
@@ -30,6 +32,24 @@ module.exports = {
         test: /\.html$/,
         loader: 'file?name=[name].[ext]',
       },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true,
+            }
+          },
+          {
+            loader: "less-loader"
+          }
+        ]
+      }
     ],
   },
 };
