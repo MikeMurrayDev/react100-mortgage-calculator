@@ -30,6 +30,7 @@ export default class App extends React.Component {
     const divisionTotal = (numerator / denominator);
 
     const monthlyPayment = (principal * divisionTotal).toFixed(2);
+    
     this.setState({
       output: `Your monthly payment is $${monthlyPayment}`
     });
